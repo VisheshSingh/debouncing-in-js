@@ -5,12 +5,10 @@ const getData = () => {
 
 const debounce = (fn, delay) => {
   let timer;
-  return function() {
-    let context = this,
-      args = arguments;
+  return () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      fn.apply(context, arguments);
+      fn();
     }, delay);
   };
 };
